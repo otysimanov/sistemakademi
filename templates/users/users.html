@@ -1,0 +1,57 @@
+{% extends 'layout/base.html' %}
+
+{% block _content %}
+<h1>Users</h1>
+
+<form action="" method="post">
+    <div class="mb-3">
+        <label for="username" class="form-label">username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username" required>
+    </div>
+    <div class="mb-3">
+        <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Masukkan Nama Lengkap" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required>
+    </div>
+    <div class="mb-3">
+        <label for="password_1" class="form-label">Konfirmasi Password</label>
+        <input type="password" class="form-control" id="password_1" name="password_1" placeholder="Masukkan Konfirmasi Password" required>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary w-100">Tambah User</button>
+    </div>
+    
+</form>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama Lengkap</th>
+            <th>username</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for us in user %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ us.nama_lengkap }}</td>
+            <td>{{ us.username }}</td>
+
+            <td>
+                <a href="#" class="btn btn-danger btn-sm">hapus</a>
+                <a href="#" class="btn btn-info btn-sm">Lihat</a>
+                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
